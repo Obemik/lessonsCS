@@ -1,12 +1,24 @@
-﻿using System.Text;
+﻿namespace Delegate;
 
-namespace lessonsCS
+internal class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        double a = 10, b = 5;
+        try
         {
-            Console.WriteLine("Hello, World!");
+            Calculate calc = new Calculate('+', '-', '*');
+            calc.MakeAction?.Invoke(a, b);
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        finally
+        {
+            Console.WriteLine($"a = {a}, b = {b}");
+        }
+
+
     }
 }
